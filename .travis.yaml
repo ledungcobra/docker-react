@@ -1,0 +1,8 @@
+sudo: required
+services: 
+    - docker
+before_install: 
+    - docker build -t ledungcobra/docker-react -f Dockerfile.dev .
+    
+script:
+    - docker run ledungcobra/docker-react npm run test -- --coverage
